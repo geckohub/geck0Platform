@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cd "$HOME/geck0Platform"
+source "$HOME/geck0Platform/.venv/bin/activate"
+exec python "$HOME/geck0Platform/controlCentre/geck0ControlCentre.py"

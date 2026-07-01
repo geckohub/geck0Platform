@@ -1,0 +1,9 @@
+name: ExamplePlugin
+command: example
+description: Example Geck0 plugin
+menu: Shared
+permissions:
+  - read
+  - execute
+entrypoint: core/commands/example.sh
+enabled: true
