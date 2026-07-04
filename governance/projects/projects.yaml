@@ -1,0 +1,36 @@
+projects:
+  geck0Platform:
+    path: /home/lucy/geck0Platform
+    family: geck0
+    status: active
+    host: JE
+
+  ped0na:
+    path: /home/lucy/geck0Projects/ped0na
+    family: ped0na
+    status: active
+    host: JE
+
+  m0nkey:
+    path: /home/lucy/geck0Projects/m0nkey
+    family: m0nkey
+    status: active
+    host: JE
+
+  li0n:
+    path: /home/lucy/geck0Projects/li0n
+    family: li0n
+    status: active
+    host: JE
+
+  geckoscan:
+    path: /home/lucy/geck0Projects/geckoscan
+    family: geck0
+    status: tg-hosted
+    host: TG
+
+  geckoair:
+    path: /home/lucy/geck0Projects/geckoair
+    family: geck0
+    status: planned
+    host: TG
