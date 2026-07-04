@@ -1,0 +1,20 @@
+NAME                       IMAGE                    COMMAND                  SERVICE       CREATED          STATUS                    PORTS
+geck0verse-bluegeck0-1     geck0verse-bluegeck0     "uvicorn services.bl…"   bluegeck0     45 minutes ago   Up 45 minutes             0.0.0.0:8107->8107/tcp, [::]:8107->8107/tcp
+geck0verse-breadcrumbs-1   geck0verse-breadcrumbs   "uvicorn services.br…"   breadcrumbs   45 minutes ago   Up 45 minutes             0.0.0.0:8105->8105/tcp, [::]:8105->8105/tcp
+geck0verse-dashboard-1     nginx:1.29-alpine        "/docker-entrypoint.…"   dashboard     45 minutes ago   Up 45 minutes             0.0.0.0:8188->80/tcp, [::]:8188->80/tcp
+geck0verse-geck0earth-1    geck0verse-geck0earth    "uvicorn services.ge…"   geck0earth    45 minutes ago   Up 45 minutes             0.0.0.0:8103->8103/tcp, [::]:8103->8103/tcp
+geck0verse-greengeck0-1    geck0verse-greengeck0    "uvicorn services.gr…"   greengeck0    45 minutes ago   Up 45 minutes             0.0.0.0:8104->8104/tcp, [::]:8104->8104/tcp
+geck0verse-hub-1           geck0verse-hub           "uvicorn services.hu…"   hub           45 minutes ago   Up 45 minutes             0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+geck0verse-pinkgeck0-1     geck0verse-pinkgeck0     "uvicorn services.pi…"   pinkgeck0     45 minutes ago   Up 45 minutes             0.0.0.0:8109->8109/tcp, [::]:8109->8109/tcp
+geck0verse-postgres-1      postgres:17-alpine       "docker-entrypoint.s…"   postgres      45 minutes ago   Up 45 minutes (healthy)   5432/tcp
+geck0verse-purplegeck0-1   geck0verse-purplegeck0   "uvicorn services.pu…"   purplegeck0   45 minutes ago   Up 45 minutes             0.0.0.0:8106->8106/tcp, [::]:8106->8106/tcp
+geck0verse-scheduler-1     geck0verse-scheduler     "uvicorn services.sc…"   scheduler     45 minutes ago   Up 45 minutes             0.0.0.0:8110->8110/tcp, [::]:8110->8110/tcp
+geck0verse-sealife-1       geck0verse-sealife       "uvicorn services.se…"   sealife       45 minutes ago   Up 45 minutes             0.0.0.0:8102->8102/tcp, [::]:8102->8102/tcp
+geck0verse-travelsheep-1   geck0verse-travelsheep   "uvicorn services.tr…"   travelsheep   45 minutes ago   Up 45 minutes             0.0.0.0:8101->8101/tcp, [::]:8101->8101/tcp
+geck0verse-yellowgeck0-1   geck0verse-yellowgeck0   "uvicorn services.ye…"   yellowgeck0   45 minutes ago   Up 45 minutes             0.0.0.0:8108->8108/tcp, [::]:8108->8108/tcp
+http://localhost:8080/health             OK
+http://localhost:8101/health             OK
+http://localhost:8102/health             OK
+http://localhost:8103/health             OK
+http://localhost:8104/health             OK
+http://localhost:8110/health             OK

@@ -1,0 +1,901 @@
+name: geck0verse
+services:
+  bluegeck0:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.bluegeck0.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8107"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8107
+        published: "8107"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  breadcrumbs:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.breadcrumbs.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8105"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8105
+        published: "8105"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Projects
+        target: /workspace/geck0Projects
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  dashboard:
+    depends_on:
+      geck0earth:
+        condition: service_started
+        required: true
+      hub:
+        condition: service_started
+        required: true
+      sealife:
+        condition: service_started
+        required: true
+      travelsheep:
+        condition: service_started
+        required: true
+    image: nginx:1.29-alpine
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8188"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/dashboard
+        target: /usr/share/nginx/html
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/dashboard/nginx.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+        bind: {}
+  geck0earth:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.geck0earth.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8103"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8103
+        published: "8103"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  greengeck0:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.greengeck0.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8104"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8104
+        published: "8104"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Projects
+        target: /workspace/geck0Projects
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  hub:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.hub.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  pinkgeck0:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.pinkgeck0.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8109"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8109
+        published: "8109"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  postgres:
+    environment:
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U geck0 -d geck0verse
+      timeout: 5s
+      interval: 10s
+      retries: 10
+    image: postgres:17-alpine
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+        volume: {}
+  purplegeck0:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.purplegeck0.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8106"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8106
+        published: "8106"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  scheduler:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.scheduler.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8110"
+    depends_on:
+      sealife:
+        condition: service_started
+        required: true
+      travelsheep:
+        condition: service_started
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8110
+        published: "8110"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  sealife:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.sealife.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8102"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8102
+        published: "8102"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  travelsheep:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.travelsheep.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8101"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8101
+        published: "8101"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+  yellowgeck0:
+    build:
+      context: /home/lucy/geck0Platform/geck0Verse
+      dockerfile: Dockerfile
+    command:
+      - uvicorn
+      - services.yellowgeck0.app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8108"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: true
+    environment:
+      AMADEUS_CLIENT_ID: ""
+      AMADEUS_CLIENT_SECRET: ""
+      CRUMBLE_LLM_PROVIDER: ollama
+      DATABASE_URL: postgresql+psycopg://geck0:0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ@postgres:5432/geck0verse
+      DEFAULT_WEBHOOK_URL: ""
+      GECK0_API_TOKEN: OozHng6dQspSb9ge37Row1ZvyOy9QdtG2RBW7wtXDNI
+      GECK0_CORS_ORIGINS: '*'
+      GECK0_DATA_ROOT: /data
+      GECK0_ENV: production
+      GECK0_FERNET_KEY: z-DnRMhAXn7U3bLRCBoZjirshgY9ArylJ-w-XWY_PW8=
+      GECK0_INTERNAL_TOKEN: EzB0uMPrGPLou6bFDLT4ToBTllZhngmAkQJIk54wiXc
+      GECK0_PROJECTS_ROOT: /home/lucy/geck0Projects
+      GECK0_TIMEZONE: Europe/London
+      GECK0_UPLOAD_LIMIT_MB: "25"
+      GREEN_ALLOW_PRIVATE: "false"
+      JE_HOST: 192.168.1.244
+      JE_SSH_PORT: "1991"
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3:4b
+      OPENAI_API_KEY: ""
+      POSTGRES_DB: geck0verse
+      POSTGRES_PASSWORD: 0-h038G2yHBzCBmCKFP6pT-Y2K4-I2wZ
+      POSTGRES_USER: geck0
+      PUBLIC_BASE_URL: http://192.168.1.244:8088
+      SEALIFE_CSV_PATH: /data/sealife/import/listings.csv
+      SEALIFE_JSON_FEED_URL: ""
+      SMTP_FROM: ""
+      SMTP_HOST: ""
+      SMTP_PASSWORD: ""
+      SMTP_PORT: "587"
+      SMTP_USERNAME: ""
+      TICKETMASTER_API_KEY: ""
+      TRAVELSHEEP_JSON_FEED_URL: ""
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8108
+        published: "8108"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/data
+        target: /data
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/config
+        target: /app/config
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/lucy/geck0Platform/geck0Verse/domains
+        target: /app/domains
+        read_only: true
+        bind: {}
+networks:
+  default:
+    name: geck0verse_default
+volumes:
+  postgres_data:
+    name: geck0verse_postgres_data
+x-common:
+  build: .
+  depends_on:
+    postgres:
+      condition: service_healthy
+  env_file: .env
+  extra_hosts:
+    - host.docker.internal:host-gateway
+  restart: unless-stopped
+  volumes:
+    - ./data:/data
+    - ./config:/app/config:ro
+    - ./domains:/app/domains:ro
