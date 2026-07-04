@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$HOME/geck0Platform"
+
+echo "Geck0Deploy Verify"
+echo "=================="
+echo
+
+echo "[1] Git status"
+git -C "$ROOT" status --short
+echo
+
+echo "[2] Git remote"
+git -C "$ROOT" remote -v
+echo
+
+echo "[3] JE disk"
+df -h /
+echo
+
+echo "[4] Governance folders"
+for d in governance governance/tg governance/tg/pending_updates geck0Deploy geck0Deploy/releases; do
+  if [ -d "$ROOT/$d" ]; then
+    echo "OK: $d"
+  else
+    echo "MISSING: $d"
+  fi
+done
+echo
+
+echo "[5] Backup scripts"
+for f in \
+  governance/scripts/geck0_architecture_backup.sh \
+  governance/scripts/geck0_architecture_backup_to_linode.sh \
+  governance/scripts/geck0_package_tg_update.sh \
+  geck0Deploy/bin/geck0 \
+  geck0Deploy/bin/geck0-release
+do
+  if [ -x "$ROOT/$f" ]; then
+    echo "OK executable: $f"
+  else
+    echo "MISSING/not executable: $f"
+  fi
+done
+echo
+
+echo "[6] Linode SSH"
+if ssh -o BatchMode=yes -o ConnectTimeout=8 pinkgeck0@172.233.15.159 "echo OK" 2>/dev/null; then
+  echo "OK: Linode SSH works"
+else
+  echo "WARN: Linode SSH not passwordless yet"
+fi
+echo
+
+echo "[7] TG pending updates"
+ls -lh "$ROOT/governance/tg/pending_updates" || true
+echo
+
+echo "Verify complete."

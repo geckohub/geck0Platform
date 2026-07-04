@@ -24,6 +24,10 @@ case "${1:-help}" in
     "$ROOT/geck0Deploy/bin/geck0-release" "${2:-geck0_release}"
     ;;
 
+  verify)
+    "$ROOT/geck0Deploy/bin/geck0-verify"
+    ;;
+
   status)
     echo "Geck0Deploy Status"
     echo "Root: $ROOT"
@@ -46,6 +50,7 @@ case "${1:-help}" in
     echo "  geck0 backup-linode"
     echo "  geck0 package-tg <name>"
     echo "  geck0 release <name>"
+    echo "  geck0 verify"
     echo "  geck0 status"
     ;;
 esac
