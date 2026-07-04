@@ -39,3 +39,6 @@ def main() -> None:
         print(f"Geck0Deploy Python v0.2 root: {root()}")
     else:
         parser.print_help()
+
+if __name__ == "__main__":
+    main()
