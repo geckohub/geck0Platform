@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+JE_USER="${GECK0_JE_USER:-lucy}"
+JE_HOST="${GECK0_JE_HOST:-192.168.1.244}"
+JE_PORT="${GECK0_JE_PORT:-1991}"
+REMOTE_GECK0="/home/lucy/.local/bin/geck0"
+
+cmd="$(basename "$0")"
+
+case "$cmd" in
+  geck0)
+    project="geck0Platform"
+    ;;
+  ped0na|m0nkey|li0n)
+    project="$cmd"
+    ;;
+  *)
+    project="geck0Platform"
+    ;;
+esac
+
+if [ "$project" = "geck0Platform" ]; then
+  remote_dir="/home/lucy/geck0Platform"
+else
+  remote_dir="/home/lucy/geck0Projects/$project"
+fi
+
+ssh -p "$JE_PORT" "$JE_USER@$JE_HOST" \
+  "cd '$remote_dir' && '$REMOTE_GECK0' '$@'"
