@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="${GECK0_ROOT:-$HOME/geck0Platform}"
-PYTHONPATH="$ROOT/geck0Deploy" exec python3 -m geck0deploy.cli "$@"
+export PYTHONPATH="$ROOT/geck0Deploy:${PYTHONPATH:-}"
+exec python3 -m geck0deploy.cli "$@"

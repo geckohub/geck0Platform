@@ -2,15 +2,4 @@
 
 Universal Geck0verse project structure.
 
-## Standard Process
-
-Every meaningful change should include:
-
-- Change control note
-- Release note
-- Wiki/doc update if needed
-- Build/install notes if needed
-- Architecture backup via Geck0Deploy
-
-JE remains the main automation and backup hub.
-GitHub remains the canonical source repository.
+Every meaningful change should include change control, release notes, wiki/build-guide updates where needed, and architecture backup through Geck0Deploy.
