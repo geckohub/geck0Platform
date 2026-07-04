@@ -1,0 +1,6 @@
+%YAML 1.1
+---
+vars: {address-groups: {HOME_NET: "[192.168.0.0/16,10.0.0.0/8,100.64.0.0/10]"}}
+afstream: {threads: auto, cluster-id: 99, cluster-type: cluster_flow, defrag: yes}
+outputs:
+  - eve-log: {enabled: yes, filetype: regular, filename: eve.json, types: [alert, dns, http, tls, flow]}

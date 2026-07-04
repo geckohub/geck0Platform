@@ -1,0 +1,11 @@
+project:
+  name: BreadCrumbs
+  family: pinkGeck0
+  host: JE
+  service_path: services/breadcrumbs
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true

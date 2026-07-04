@@ -1,0 +1,11 @@
+project:
+  name: Purple Geck0
+  family: purpleGeck0
+  host: JE
+  service_path: services/purplegeck0
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true

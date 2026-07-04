@@ -1,0 +1,11 @@
+project:
+  name: Blue Geck0
+  family: blueGeck0
+  host: JE
+  service_path: services/bluegeck0
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true

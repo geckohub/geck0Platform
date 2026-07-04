@@ -1,0 +1,14 @@
+const H='/api/hub',T='/api/travel',S='/api/sea',E='/api/earth',G='/api/green';
+const tok=()=>document.getElementById('token').value||localStorage.getItem('geck0Token')||'';const headers=()=>({'X-Geck0-Token':tok(),'Content-Type':'application/json'});
+async function api(url,opt={}){localStorage.setItem('geck0Token',tok());let r=await fetch(url,{...opt,headers:{...headers(),...(opt.headers||{})}});if(!r.ok)throw new Error(await r.text());return r.json()}
+async function chat(){chatOut.textContent='Thinking…';chatOut.textContent=JSON.stringify(await api(H+'/v1/chat',{method:'POST',body:JSON.stringify({message:message.value})}),null,2)}
+function item(x){return `<div class=item><b>${x.destination||x.title||x.name||x.id}</b><br>${x.total_price?'£'+x.total_price:''} ${x.price?'£'+x.price:''}<div class=muted>${x.summary||x.town||x.status||''}</div></div>`}
+async function loadTravel(){let d=await api(T+'/v1/deals?max_budget=200');travel.innerHTML=d.deals.map(item).join('')}
+async function loadSea(){let d=await api(S+'/v1/listings?bedrooms=2');sea.innerHTML=d.listings.map(item).join('')}
+async function refresh(k){await api((k==='travel'?T:S)+'/v1/refresh',{method:'POST',body:'{}'});k==='travel'?loadTravel():loadSea();loadEarth()}
+async function safeTest(){greenOut.textContent=JSON.stringify(await api(G+'/v1/tests',{method:'POST',body:JSON.stringify({url:testUrl.value,tests:['http','headers','tls','html'],outputs:['json','html']})}),null,2)}
+async function loadDomains(){let d=await api(H+'/v1/domains');domains.innerHTML=d.domains.map(x=>`<div class=item><b>${x.id}</b><br><span class=muted>${x.family} • ${x.host} • ${x.status}</span></div>`).join('')}
+let map=L.map('map').setView([51.2,0.1],7);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);let markers=[];
+function addPoint(p,label){let m=L.marker([p.lat,p.lon]).addTo(map).bindPopup(`<b>${p.title||label}</b><br>${p.properties?.total_price?'£'+p.properties.total_price:''}${p.properties?.price?'£'+p.properties.price:''}`);markers.push(m)}
+async function loadEarth(){markers.forEach(x=>map.removeLayer(x));markers=[];let chosen=[...document.querySelectorAll('.layer:checked')].map(x=>x.value);let live=chosen.filter(x=>!['travel','property'].includes(x));let d=await api(E+'/v1/realtime?lat=50.85&lon=0.1&layers='+live.join(','));earthOut.textContent=JSON.stringify(d,null,2);if(d.layers.earthquakes)for(let q of d.layers.earthquakes)addPoint({lat:q.lat,lon:q.lon,title:q.place,properties:{price:' M'+q.magnitude}},'Earthquake');if(chosen.includes('travel')){let t=await api(T+'/v1/map?max_budget=200');t.points.forEach(p=>addPoint(p,'Travel'))}if(chosen.includes('property')){let s=await api(S+'/v1/map');s.points.forEach(p=>addPoint(p,'Property'))}}
+loadDomains().catch(console.error);loadTravel().catch(console.error);loadSea().catch(console.error);loadEarth().catch(console.error);

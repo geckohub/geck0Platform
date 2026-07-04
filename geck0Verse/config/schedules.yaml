@@ -1,0 +1,16 @@
+timezone: Europe/London
+jobs:
+  - id: travelsheep_weekly
+    service: travelsheep
+    method: POST
+    url: http://travelsheep:8101/v1/refresh
+    weekday: 3
+    hour: 2
+    minute: 0
+  - id: sealife_daily
+    service: sealife
+    method: POST
+    url: http://sealife:8102/v1/refresh
+    weekday: "*"
+    hour: 11
+    minute: 0

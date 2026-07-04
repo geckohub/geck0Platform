@@ -1,0 +1,34 @@
+intents:
+  - name: travelsheep_latest
+    patterns: ["travel deals", "weekend away", "travelsheep", "getaway"]
+    action: GET http://travelsheep:8101/v1/deals
+  - name: travelsheep_refresh
+    patterns: ["refresh travel", "update travelsheep", "find new travel deals"]
+    action: POST http://travelsheep:8101/v1/refresh
+  - name: sealife_latest
+    patterns: ["new flats", "rentals", "shared ownership", "sealife", "property"]
+    action: GET http://sealife:8102/v1/listings
+  - name: sealife_refresh
+    patterns: ["refresh property", "update sealife", "find new homes"]
+    action: POST http://sealife:8102/v1/refresh
+  - name: earth_layers
+    patterns: ["earth layers", "weather map", "air quality", "telemetry"]
+    action: GET http://geck0earth:8103/v1/layers
+  - name: projects
+    patterns: ["show projects", "what is running", "domain status"]
+    action: LOCAL projects
+  - name: green_capabilities
+    patterns: ["green gecko", "testing options", "test capabilities"]
+    action: GET http://greengeck0:8104/v1/capabilities
+  - name: breadcrumbs_projects
+    patterns: ["breadcrumbs projects", "client repos", "created sites"]
+    action: GET http://breadcrumbs:8105/v1/projects
+  - name: blue_assets
+    patterns: ["blue gecko", "digital assets", "gallery products"]
+    action: GET http://bluegeck0:8107/v1/items
+  - name: yellow_shops
+    patterns: ["yellow gecko", "robot rainforest", "shops and products"]
+    action: GET http://yellowgeck0:8108/v1/items
+  - name: scheduler_jobs
+    patterns: ["scheduled jobs", "when does travelsheep run", "automation schedule"]
+    action: GET http://scheduler:8110/v1/jobs

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+JE_USER="${GECK0_JE_USER:-lucy}"
+JE_HOST="${GECK0_JE_HOST:-192.168.1.244}"
+JE_PORT="${GECK0_JE_PORT:-1991}"
+JE_HOME="${GECK0_JE_HOME:-/home/lucy}"
+name="$(basename "$0")"
+case "$name" in
+  geck0) remote_dir="$JE_HOME/geck0Platform" ;;
+  ped0na|m0nkey|li0n) remote_dir="$JE_HOME/geck0Projects/$name" ;;
+  *) remote_dir="$JE_HOME/geck0Platform" ;;
+esac
+printf -v quoted ' %q' "$@"
+ssh -p "$JE_PORT" "$JE_USER@$JE_HOST" "cd $(printf '%q' "$remote_dir") && $(printf '%q' "$JE_HOME/.local/bin/geck0")$quoted"

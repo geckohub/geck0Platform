@@ -1,0 +1,61 @@
+projects:
+  - id: geck0Platform
+    family: geck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088
+    service: hub
+  - id: travelSheep
+    family: pinkGeck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088/#travelsheep
+    service: travelsheep
+  - id: seaLife
+    family: pinkGeck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088/#sealife
+    service: sealife
+  - id: geck0Earth
+    family: geck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088/#earth
+    service: geck0earth
+  - id: greenGeck0
+    family: greenGeck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088/#green
+    service: greengeck0
+  - id: breadCrumbs
+    family: pinkGeck0
+    host: JE
+    status: active
+    dashboard: http://localhost:8088/#breadcrumbs
+    service: breadcrumbs
+  - id: blueGeck0
+    family: blueGeck0
+    host: JE
+    status: foundation
+    dashboard: http://localhost:8088/#blue
+    service: bluegeck0
+  - id: yellowGeck0
+    family: yellowGeck0
+    host: JE
+    status: foundation
+    dashboard: http://localhost:8088/#yellow
+    service: yellowgeck0
+  - id: purpleGeck0
+    family: purpleGeck0
+    host: JE
+    status: foundation
+    dashboard: http://localhost:8088/#purple
+    service: purplegeck0
+  - id: geckoScan
+    family: blackGeck0
+    host: TG
+    status: offline-capable
+    dashboard: http://localhost:8088/#geckoscan
+    service: tg

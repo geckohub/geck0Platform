@@ -1,0 +1,12 @@
+layers:
+  - {id: weather, group: environment, realtime: true, implemented: true}
+  - {id: air_quality, group: environment, realtime: true, implemented: true}
+  - {id: marine, group: environment, realtime: true, implemented: true}
+  - {id: earthquakes, group: hazards, realtime: true, implemented: true}
+  - {id: events, group: culture, realtime: true, implemented: false}
+  - {id: aircraft, group: transport, realtime: true, implemented: false}
+  - {id: ships, group: transport, realtime: true, implemented: false}
+  - {id: transit, group: transport, realtime: true, implemented: false}
+  - {id: wifi_rf, group: signals, realtime: true, implemented: ingestion}
+  - {id: history, group: timeline, realtime: false, implemented: ingestion}
+  - {id: economics, group: intelligence, realtime: mixed, implemented: ingestion}

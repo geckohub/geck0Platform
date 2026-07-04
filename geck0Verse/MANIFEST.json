@@ -1,0 +1,990 @@
+{
+  "name": "Geck0verse Integrated Control Plane",
+  "version": "2.0.0",
+  "generated_at": "2026-07-04T20:00:00+01:00",
+  "file_count": 195,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "0665d14ff0837ebcb27f22b516ec379fc0a915175f31061ac4142c35309f52cd",
+      "bytes": 1162
+    },
+    {
+      "path": ".geck0backupignore",
+      "sha256": "8f756816e31fa450643cf9044ae7a1a79cd2b8530bb61595ef03b28b784dfc93",
+      "bytes": 81
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "cd721bd893797195e43a20e12ef66fb9093b59ad24796f8b451dbc02c085e81a",
+      "bytes": 96
+    },
+    {
+      "path": ".pytest_cache/.gitignore",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "bytes": 37
+    },
+    {
+      "path": ".pytest_cache/CACHEDIR.TAG",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "bytes": 191
+    },
+    {
+      "path": ".pytest_cache/README.md",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302
+    },
+    {
+      "path": ".pytest_cache/v/cache/nodeids",
+      "sha256": "657cf80834121d2f160e14c782508a756a444145b1f2d3ff270edc49829a4fea",
+      "bytes": 325
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "6d5f362e6d4aad1c2640ab9732616d889024c3a2f8afd244389606dfea80a07b",
+      "bytes": 480
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "8370367f0e30b464305de1c89377e0df15db75a29d76300bcde85065e6d2a93c",
+      "bytes": 480
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "fdb73627453d1c41d3b76afadab1fe839b6c3a2911a4b0d5dc58f8a5782c80d4",
+      "bytes": 937
+    },
+    {
+      "path": "Makefile",
+      "sha256": "cc7f5fdcbf8fd8250ff5c63f7edb7b7e968c6e7ec0fab65f98751995f9e2fde4",
+      "bytes": 191
+    },
+    {
+      "path": "README.md",
+      "sha256": "709566bb4c825e538ad206e518aced0d34e3fbcf932e08f32fa6e10a96995ac3",
+      "bytes": 2124
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "sha256": "d5e108db5bad416bbd464c280909aeeb2bbb62ed3c28b557cdeea89bf40e262b",
+      "bytes": 1600
+    },
+    {
+      "path": "android/Crumble/README.md",
+      "sha256": "d5e5c34b28e9ccbf5d4852b8a72804aea66a12a19dad97bd083119f5fc7b04ca",
+      "bytes": 416
+    },
+    {
+      "path": "android/Crumble/app/build.gradle.kts",
+      "sha256": "2808c5d10e0cd7ac4d005cd5e794a5d03771b8cf3e00464e7e624d05dde44989",
+      "bytes": 1516
+    },
+    {
+      "path": "android/Crumble/app/proguard-rules.pro",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "android/Crumble/app/src/main/AndroidManifest.xml",
+      "sha256": "22903d77aafdd06fe0023ac189f448141e35fd79b8e327c8477643ae8a9365dd",
+      "bytes": 546
+    },
+    {
+      "path": "android/Crumble/app/src/main/java/uk/geckohub/crumble/Api.kt",
+      "sha256": "cd637bad8381eed3bea5c4d5770bd46ee8629ce29627fe1a38388c0dcfad5592",
+      "bytes": 734
+    },
+    {
+      "path": "android/Crumble/app/src/main/java/uk/geckohub/crumble/MainActivity.kt",
+      "sha256": "5d6d0bc14ab17d95fc4f65dce3643e79931af488412d85f6f0783f1862750064",
+      "bytes": 9248
+    },
+    {
+      "path": "android/Crumble/app/src/main/res/values/styles.xml",
+      "sha256": "db1a23f11954b57d9aff036a5f0eefade300112d371ce33d47278d5b798fc056",
+      "bytes": 205
+    },
+    {
+      "path": "android/Crumble/bootstrap-wrapper.sh",
+      "sha256": "8009cdeba8d4294258288cea83bd8560541b19aa4aadede105cdeb60e9688747",
+      "bytes": 189
+    },
+    {
+      "path": "android/Crumble/build.gradle.kts",
+      "sha256": "0432737d2eeb82628fd0728ea61e923e3e1906b37211b53b4de68d2f5e5b0298",
+      "bytes": 217
+    },
+    {
+      "path": "android/Crumble/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "70fa201501995e6f45c0c475def71093f8115849344c48322ca997cfddba8534",
+      "bytes": 252
+    },
+    {
+      "path": "android/Crumble/gradle.properties",
+      "sha256": "e43a00491832254a35cf5a979ef6de17f78c4e159d446be39319d2e3d3e46325",
+      "bytes": 100
+    },
+    {
+      "path": "android/Crumble/settings.gradle.kts",
+      "sha256": "491812bf4cf98fb4d9dfa0f64cdfc1179b3fafd22bd7e79595e09b358cf20392",
+      "bytes": 269
+    },
+    {
+      "path": "blackgeck0/README.md",
+      "sha256": "43f0f185d0f5ac874cef9d4cbfcfb1a527cc8dd905212a03f07f85beb528ec25",
+      "bytes": 500
+    },
+    {
+      "path": "blackgeck0/geck0sentinel/loki.yml",
+      "sha256": "563112591ba675e448da2af7ef2c95d5e4be380ae67a4dc3778a5cd775c17614",
+      "bytes": 368
+    },
+    {
+      "path": "blackgeck0/geck0trap/opencanary.conf",
+      "sha256": "8b05eb2c93c0d2040523b8d868a15ec64355c741a2d9ead19e26773bd8795811",
+      "bytes": 266
+    },
+    {
+      "path": "blackgeck0/geck0watch/suricata.yaml",
+      "sha256": "0e01cee179152329204bc016145808c74bb1b04b65c7b6703357720e3118da22",
+      "bytes": 291
+    },
+    {
+      "path": "clients/README.md",
+      "sha256": "7bebeeb0a369cb0fafa5c05481d9abe8f54880b0875e987aa44bd9200e2435a3",
+      "bytes": 317
+    },
+    {
+      "path": "clients/__pycache__/crumblectl.cpython-313.pyc",
+      "sha256": "99dbf116a48cee4b16bad54994fe148f66d70a85ecc74ffe2a9e51ef31b0ac08",
+      "bytes": 3042
+    },
+    {
+      "path": "clients/crumblectl.py",
+      "sha256": "a5d46463ad76aad3c725fef77e5a0d295e266b33327cff8b72b6c5448cbe227f",
+      "bytes": 1409
+    },
+    {
+      "path": "clients/geck0-remote",
+      "sha256": "e449dc89e56aa084e56e5f47f3e18d557df04c01369c23f8167e24b7be8a774c",
+      "bytes": 542
+    },
+    {
+      "path": "clients/install-remote-client.sh",
+      "sha256": "42ac84bfaa64d378627b5cda07bc3d2d5e7763378fcfca6d757a8b7f73c0d244",
+      "bytes": 542
+    },
+    {
+      "path": "config/intents.yaml",
+      "sha256": "5a54d5dc1a4d7af4042579cef468b5ff77b025787bc697d215af77170b1574ad",
+      "bytes": 1628
+    },
+    {
+      "path": "config/layers.yaml",
+      "sha256": "c417e35880a66540c64687f48cccdf6ca3ab23f003503ddf0a8945fe8001a688",
+      "bytes": 819
+    },
+    {
+      "path": "config/projects.yaml",
+      "sha256": "c9ad19f98f45cc6fa07c443e7e169a3ec2f236eb9e2b980dab13ecd53b05cfea",
+      "bytes": 1438
+    },
+    {
+      "path": "config/schedules.yaml",
+      "sha256": "0565c7a809ec9a9da8fd2fa7a90c2300e9f145de006710672a8c754e0b619828",
+      "bytes": 328
+    },
+    {
+      "path": "dashboard/app.js",
+      "sha256": "3a308968add0f9deb04c3ab410b8bba2f9bd3a63aaede4a42ab5122ecd4462db",
+      "bytes": 2934
+    },
+    {
+      "path": "dashboard/index.html",
+      "sha256": "2523863b47eea29cdbe6168086eb6211008d7a6649c3f22006cfb0c49af25db8",
+      "bytes": 2285
+    },
+    {
+      "path": "dashboard/nginx.conf",
+      "sha256": "91195f93faebd24cc4990377b5460e689f0ad7d071bca716cc7384228bf4baa3",
+      "bytes": 601
+    },
+    {
+      "path": "dashboard/styles.css",
+      "sha256": "92f104785d7bfb6319f317b9241977708b8ceff3248acdcc3e418a012fdfa2c1",
+      "bytes": 1157
+    },
+    {
+      "path": "docker-compose.security.yml",
+      "sha256": "fb05488c9f0b94774227f3fab60fc38e8da0ffb04232cf8b647db17a56bf5787",
+      "bytes": 993
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "9e1bd54d0509f0eed1e1f3eb641cb3aa77244135a3ebc6904832a2b727837e0c",
+      "bytes": 3101
+    },
+    {
+      "path": "docs/API_SOURCES.md",
+      "sha256": "964c04375854de5918630dcf1724d5b1240d5cbca82708d4218217542964c5f1",
+      "bytes": 507
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "cb824b63c05e351490be3b4df86ba588126d0a49836d03fbdf2ab89663b0e621",
+      "bytes": 482
+    },
+    {
+      "path": "docs/BACKUP.md",
+      "sha256": "96b334825c2835e43e428d9c269a2d39ec788a2087038ac23318b67ac373a132",
+      "bytes": 304
+    },
+    {
+      "path": "docs/CONNECTORS.md",
+      "sha256": "0ec52e7675b989b0f8f879d85f70f284879a4e459513e43afadbe115e5a34030",
+      "bytes": 420
+    },
+    {
+      "path": "docs/CRUMBLE_MEMORY.md",
+      "sha256": "6735ea40034b58fcd744d2ff4250f30908ac55973bcf2dec6ac11b00e6eb0e6e",
+      "bytes": 276
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "sha256": "c4de562455eb0927b4ec876a0a6e60e243f47528461e6889c96dc6cdaeafde55",
+      "bytes": 584
+    },
+    {
+      "path": "docs/SPIN_OFF_GUIDE.md",
+      "sha256": "04fb8d5e987ff877eab79645605824dc3e5d3f5e79f9c6baafdb02c60d8bda84",
+      "bytes": 288
+    },
+    {
+      "path": "domains/blueGeck0/README.md",
+      "sha256": "37a961af46d052a07df4b13b06df8df0809b4894c0c68c9204a14b4a9b9994c3",
+      "bytes": 112
+    },
+    {
+      "path": "domains/blueGeck0/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/blueGeck0/project.yaml",
+      "sha256": "aa6914d24d26522800b569c4b4779c9cb18d8b139924ad1ed9ded5cdc66948c5",
+      "bytes": 193
+    },
+    {
+      "path": "domains/geck0/geck0Earth/README.md",
+      "sha256": "43652f1ca5eefa8ca4e5d029c37c62d1d1cf953a99baad108bf1d57629435ab2",
+      "bytes": 108
+    },
+    {
+      "path": "domains/geck0/geck0Earth/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/geck0/geck0Earth/project.yaml",
+      "sha256": "94015b118df1fdade858c253cd78764787b834f34bdf3b06e0e81e0f14c31be1",
+      "bytes": 190
+    },
+    {
+      "path": "domains/greenGeck0/README.md",
+      "sha256": "0e8ecc189b27a34718b5f77ca2e9a365c4d0ab254ee5a1de63758316fa18cb98",
+      "bytes": 114
+    },
+    {
+      "path": "domains/greenGeck0/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/greenGeck0/project.yaml",
+      "sha256": "69e88de5e638a59cd165c5e3ac7b515b0dfb344638e8af143d34b91a1820230d",
+      "bytes": 196
+    },
+    {
+      "path": "domains/pinkGeck0/breadCrumbs/README.md",
+      "sha256": "8ef14e2086bd8254ccaaaa1a9413112f650850937dfdccb09e7ff18604c7a0d0",
+      "bytes": 113
+    },
+    {
+      "path": "domains/pinkGeck0/breadCrumbs/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/pinkGeck0/breadCrumbs/project.yaml",
+      "sha256": "d31cd8fb2324a1444ebb7f171ab412cb95229c47861666c4a693bec93516693c",
+      "bytes": 196
+    },
+    {
+      "path": "domains/pinkGeck0/seaLife/README.md",
+      "sha256": "f694537a08c0f266a65ce7b14142e35826c8873f071cfd755dd595622f1d3ad2",
+      "bytes": 109
+    },
+    {
+      "path": "domains/pinkGeck0/seaLife/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/pinkGeck0/seaLife/project.yaml",
+      "sha256": "fbd0cc599a73d81e1eb7fa956f34884b9f03d4ad915ae9bb9beffe4d8af94b93",
+      "bytes": 188
+    },
+    {
+      "path": "domains/pinkGeck0/travelSheep/README.md",
+      "sha256": "967ac09deffbb8a87cfdcf12fa424935569c5a1906aaddb4c1eaeba3ec74bd75",
+      "bytes": 113
+    },
+    {
+      "path": "domains/pinkGeck0/travelSheep/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/pinkGeck0/travelSheep/project.yaml",
+      "sha256": "613e2accf14797058bcb4407ff897264ead8e74cf53f0a5c7e2c11be551b28c4",
+      "bytes": 196
+    },
+    {
+      "path": "domains/purpleGeck0/README.md",
+      "sha256": "bb0938e2bc82a60933830ece4aff7e1f4fd280177da48628c5f903dd6ee3c8db",
+      "bytes": 116
+    },
+    {
+      "path": "domains/purpleGeck0/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/purpleGeck0/project.yaml",
+      "sha256": "448a37ff7acca056c168fe44951b3c61f5781cb822b877b1b26f9d1d6a55c5ac",
+      "bytes": 199
+    },
+    {
+      "path": "domains/yellowGeck0/README.md",
+      "sha256": "fa96dcb665d1ce767892ff2e577e14972bf166ceb7d51b54134db20042a9ac61",
+      "bytes": 116
+    },
+    {
+      "path": "domains/yellowGeck0/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/yellowGeck0/project.yaml",
+      "sha256": "3879cdaab58638aec5dc206f7334c1ac9885a9b7557f75fb14396975c1f0ead6",
+      "bytes": 199
+    },
+    {
+      "path": "domains/yellowGeck0/robotRainforest/README.md",
+      "sha256": "23b91c3c84b55ef12950b00e33cdb3e5a6f90b2bb3c03533d3a5f8971803fb18",
+      "bytes": 120
+    },
+    {
+      "path": "domains/yellowGeck0/robotRainforest/clients/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "domains/yellowGeck0/robotRainforest/project.yaml",
+      "sha256": "e40fe505a87fd3b6838e4a37beb9528a7cb2629658308f351a76d30d0ab653d4",
+      "bytes": 202
+    },
+    {
+      "path": "governance/change_control/INSTALLATION.md",
+      "sha256": "a20e9e60ecef71bbb19e42218db76a76945a597bee4b3b21f677f74e117eb401",
+      "bytes": 177
+    },
+    {
+      "path": "governance/release_notes/V2_0_0.md",
+      "sha256": "8bfda721f652c9a3dddfe47924133c7141dab84dfd21f7950868f4d56ef4de68",
+      "bytes": 169
+    },
+    {
+      "path": "install.sh",
+      "sha256": "7fddd675198a878992dc76c2722cd3c7f1f8f2cca19c66d248a37035733dc324",
+      "bytes": 1833
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "fbacaddc64755dc006ae64498705a4bf6add474ec90b098c14a78d1ff6869f7c",
+      "bytes": 718
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ea5b4614623345c7285eeb3bd320911fafc6d113b111e7b4abf8ed704158c83d",
+      "bytes": 223
+    },
+    {
+      "path": "rollback.sh",
+      "sha256": "201618e10ddce2caf00f22a9624a5f09dc8be0bbaa2bf017a885682a491602b3",
+      "bytes": 368
+    },
+    {
+      "path": "scripts/healthcheck.sh",
+      "sha256": "66325b58050ee28ab85bc62b3cf377b88c0b91693d44ce668142325aa1a48fa7",
+      "bytes": 335
+    },
+    {
+      "path": "scripts/refresh-now.sh",
+      "sha256": "de3883b460939c77526b2bcde6d97021076b013302910981f0606dcf75edb5fe",
+      "bytes": 286
+    },
+    {
+      "path": "scripts/show-token.sh",
+      "sha256": "d29bc646a5db3a7d9ae36cba10d1b6e0f4698898297063de01794ad9c5b421c2",
+      "bytes": 107
+    },
+    {
+      "path": "scripts/start.sh",
+      "sha256": "da1c351e72d42d8db021cedc1c1af595e0177eece28d54883682cd8edfd08d32",
+      "bytes": 155
+    },
+    {
+      "path": "scripts/status.sh",
+      "sha256": "b818bcdbf7329905114d05dfea3ab7ec07a6e0373e9f14a97e274549585aecca",
+      "bytes": 113
+    },
+    {
+      "path": "scripts/stop.sh",
+      "sha256": "d6998cf06fa9798efac58c04e696e5702738a5873fa5a71c72d279fbd6cdb5a6",
+      "bytes": 82
+    },
+    {
+      "path": "services/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "0011366ce2156a35af0edb034f4bbddd2683e2f94fa01d46960d40f12db2be3f",
+      "bytes": 117
+    },
+    {
+      "path": "services/__pycache__/domain_store.cpython-313.pyc",
+      "sha256": "764678b7437608ed7882c5f84d43cb960cf09cc518f7b3f5e9e0bd75c1021059",
+      "bytes": 2092
+    },
+    {
+      "path": "services/bluegeck0/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/bluegeck0/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "0fb6fe90cf5dd0be602f05f8860f277cd7b0ee47c4bf7e8be45c348bcb750f16",
+      "bytes": 127
+    },
+    {
+      "path": "services/bluegeck0/__pycache__/app.cpython-313.pyc",
+      "sha256": "768258d71fb9d8f356567bcc46ec7dc2d6f1168512c03cae4b965e4abf240d2d",
+      "bytes": 3062
+    },
+    {
+      "path": "services/bluegeck0/app.py",
+      "sha256": "80821712a68a18d4a9db011ebd11e969a63bfa548a983a0b772a3ba34b57a82f",
+      "bytes": 1548
+    },
+    {
+      "path": "services/breadcrumbs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/breadcrumbs/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "858a407762f30be06bc877624b2919a8edd87f6dbbae78dbc26f20a2f1296ae8",
+      "bytes": 129
+    },
+    {
+      "path": "services/breadcrumbs/__pycache__/app.cpython-313.pyc",
+      "sha256": "e49bb0b22de383a226d715890ec04ce1836d170494c443fd822bfbe89b1ae7a1",
+      "bytes": 3451
+    },
+    {
+      "path": "services/breadcrumbs/__pycache__/repos.cpython-313.pyc",
+      "sha256": "326fbe051664a7cd3f1b7a5d7e65640362a2b7aeda9f18e64edbf1648f6c32ab",
+      "bytes": 3424
+    },
+    {
+      "path": "services/breadcrumbs/app.py",
+      "sha256": "a09f31bb5d11b7752eb88b77991a12b3bfce9df8eaa264b6322f641164bac9da",
+      "bytes": 1361
+    },
+    {
+      "path": "services/breadcrumbs/repos.py",
+      "sha256": "e524ce03290f8fbc78804d8bee510638cac6652caa0ff1feb583270984a5a91c",
+      "bytes": 1646
+    },
+    {
+      "path": "services/domain_store.py",
+      "sha256": "f3752088df32c7ed005e90b6416b4248195f35dbe8ddb88fbcd8766d3b0968fe",
+      "bytes": 742
+    },
+    {
+      "path": "services/geck0earth/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/geck0earth/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "aaa986a24a51a4f741cc3fdf08fc1fb59d2b18bf642db37b64a9dcd285dc2b76",
+      "bytes": 128
+    },
+    {
+      "path": "services/geck0earth/__pycache__/app.cpython-313.pyc",
+      "sha256": "8c8fabd1beb12639af85a5e1cdaf3690ae07d84edbf1a22b024b23669bc689c1",
+      "bytes": 5646
+    },
+    {
+      "path": "services/geck0earth/__pycache__/connectors.cpython-313.pyc",
+      "sha256": "e3a8eb4d169459b469814ad6c7f2082ceb8cf1ca013ced075c31ccc486480e6e",
+      "bytes": 2485
+    },
+    {
+      "path": "services/geck0earth/app.py",
+      "sha256": "d86e6d22b76846c923e56ac6e42130cbc102ec2c0aa691fd57fe2a5306bf9c4c",
+      "bytes": 2432
+    },
+    {
+      "path": "services/geck0earth/connectors.py",
+      "sha256": "ab7227c332d3d88e7c2f810e363ba660155f57d8597d883fa4a15347b80d410b",
+      "bytes": 1259
+    },
+    {
+      "path": "services/greengeck0/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/greengeck0/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "fec745dfcbdbba8de89e06cf8a4df37c08f25a5759ba33b79894efbb0c89d10a",
+      "bytes": 128
+    },
+    {
+      "path": "services/greengeck0/__pycache__/app.cpython-313.pyc",
+      "sha256": "a094c83483b46de7eddf922e348c8c298086580d5017537ad10fead5b853ba3b",
+      "bytes": 3633
+    },
+    {
+      "path": "services/greengeck0/__pycache__/delivery.cpython-313.pyc",
+      "sha256": "6f45fcb826381ab4e40528075a6895b1cea73de0e65a876922dc098b00e91d70",
+      "bytes": 4766
+    },
+    {
+      "path": "services/greengeck0/__pycache__/reports.cpython-313.pyc",
+      "sha256": "622e8c088b4edd4c156fd5b66f536eaa7c1296a141ec5018eba10d43c2fa1d28",
+      "bytes": 2162
+    },
+    {
+      "path": "services/greengeck0/__pycache__/runner.cpython-313.pyc",
+      "sha256": "c707a7f9bc37e0933ad11e67973905b882a0cd0fa0383177126df891ffd7a85d",
+      "bytes": 4752
+    },
+    {
+      "path": "services/greengeck0/app.py",
+      "sha256": "ba722b9628300d43887b58c6466e64ca7dff69c415436670e09737bb04bb242b",
+      "bytes": 1547
+    },
+    {
+      "path": "services/greengeck0/delivery.py",
+      "sha256": "1a58a34e1a2eb58584e47186455250cb213ee7feed1b3d2a8ce8e011f1cb848a",
+      "bytes": 2358
+    },
+    {
+      "path": "services/greengeck0/reports.py",
+      "sha256": "fae1e15e48cf25f035e914ab3393454a5ec4cee1d8a13f689bda37c2e1054e2e",
+      "bytes": 1046
+    },
+    {
+      "path": "services/greengeck0/runner.py",
+      "sha256": "5f336a30798cb672e80e0e5721ccedf14a09751992e22683337d6c0c13b92cd5",
+      "bytes": 2231
+    },
+    {
+      "path": "services/hub/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/hub/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "66723989fd789e0e2cd91a772e09ac1c1a4e7b40f8692877fd3a594c7eb19037",
+      "bytes": 121
+    },
+    {
+      "path": "services/hub/__pycache__/app.cpython-313.pyc",
+      "sha256": "32cd8e14b58bb4187de68ec8a1b0224aa94adedb3adbde279dd72374493231c8",
+      "bytes": 6969
+    },
+    {
+      "path": "services/hub/__pycache__/dispatcher.cpython-313.pyc",
+      "sha256": "5d1e6371b92d3b3a64f5d60538384ce9755a2091de71f52b276a8f8aa929563d",
+      "bytes": 689
+    },
+    {
+      "path": "services/hub/__pycache__/history.cpython-313.pyc",
+      "sha256": "31caa5d147d613f98f8a297d7340b5b87dfe30e05e8885fd0a8f88fed7f85066",
+      "bytes": 3707
+    },
+    {
+      "path": "services/hub/__pycache__/llm.cpython-313.pyc",
+      "sha256": "762d2975015e8f8f974e7da6917db5d85ee2f1407a9151a27c328f1b9be8ea00",
+      "bytes": 1960
+    },
+    {
+      "path": "services/hub/app.py",
+      "sha256": "9630f2da14b3718ad875790e0a3490c5e58e102c3daab2ad30764fed23135ea7",
+      "bytes": 3128
+    },
+    {
+      "path": "services/hub/dispatcher.py",
+      "sha256": "7b51604a2bc418d90b9b02979e4cc283d11230d5c5924ed239af9397eec9611b",
+      "bytes": 309
+    },
+    {
+      "path": "services/hub/history.py",
+      "sha256": "5b3e9dac38f1ff09a35e16feb62da180b6a4be0b5918d46206006596297184df",
+      "bytes": 1338
+    },
+    {
+      "path": "services/hub/llm.py",
+      "sha256": "b9d0429339c58e2892b2add3a411a64488be7fee06d439c301de609c959ddf6d",
+      "bytes": 743
+    },
+    {
+      "path": "services/pinkgeck0/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/pinkgeck0/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "38553b8db25b1421d81ada783c294ebbe0c4234cb7e35c890d166ab6da13b505",
+      "bytes": 127
+    },
+    {
+      "path": "services/pinkgeck0/__pycache__/app.cpython-313.pyc",
+      "sha256": "535aa79068b4e000b5328c02823d98aafce951efc1f39d52e6a6075cdfc8ff7b",
+      "bytes": 3084
+    },
+    {
+      "path": "services/pinkgeck0/app.py",
+      "sha256": "e275e4579550435a9705b030a159198be8bdc01748c379eee46932e8ac57b78e",
+      "bytes": 1589
+    },
+    {
+      "path": "services/purplegeck0/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/purplegeck0/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "ed66bfd60d51c78566a55be819e76e61a58c7b548f8ba74016820e1efd8a24e7",
+      "bytes": 129
+    },
+    {
+      "path": "services/purplegeck0/__pycache__/app.cpython-313.pyc",
+      "sha256": "157aad2fcb9722046e131bf19ffbfa3d2e743567acbe9448d5ece380a7a04c02",
+      "bytes": 4834
+    },
+    {
+      "path": "services/purplegeck0/app.py",
+      "sha256": "87d8c26eb3a4c4dde6a703fd9e073ddf57cbba5d08b835aa1e4ba6ade48b4ccc",
+      "bytes": 1852
+    },
+    {
+      "path": "services/scheduler/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/scheduler/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "ccd44be7e50cf10b973386091d80c8ce2711d1923a71c068f8747725f485dc0d",
+      "bytes": 127
+    },
+    {
+      "path": "services/scheduler/__pycache__/app.cpython-313.pyc",
+      "sha256": "515493a924946223d802cf649ceb89b059b29fcf109fc7e00fb91f29cbf6416f",
+      "bytes": 5271
+    },
+    {
+      "path": "services/scheduler/app.py",
+      "sha256": "da17a7e4e095983befcbbb5f8ed313143c4d256865761a1be658fe507f50c2a7",
+      "bytes": 2257
+    },
+    {
+      "path": "services/sealife/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/sealife/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "7aca5a68b7f48eb9bca86fe716852480f26c9cca821bbab2219bcebe9d091a2d",
+      "bytes": 125
+    },
+    {
+      "path": "services/sealife/__pycache__/app.cpython-313.pyc",
+      "sha256": "d9c06ced9e361cab2dcea2b7f6ebaa8e662a8696e4a0190901656d002f2ea28c",
+      "bytes": 3194
+    },
+    {
+      "path": "services/sealife/__pycache__/connectors.cpython-313.pyc",
+      "sha256": "25a29280adccbe948694de6f288a7c9b743b110de3595df592a1cea93a0c5231",
+      "bytes": 2746
+    },
+    {
+      "path": "services/sealife/__pycache__/store.cpython-313.pyc",
+      "sha256": "ab9553a89ea723bc9abe02d084a44b0704b680b82324b98c0130bf7f8e45eb96",
+      "bytes": 2494
+    },
+    {
+      "path": "services/sealife/app.py",
+      "sha256": "d0dad8823653a508255e0c2263ae102e07d0dc3e561d96a45d45703ad9a3f001",
+      "bytes": 1373
+    },
+    {
+      "path": "services/sealife/connectors.py",
+      "sha256": "e878c3689cbf2a1dcaa69225395df946779e82cf0a4659736a64ff9b00aa1f30",
+      "bytes": 1731
+    },
+    {
+      "path": "services/sealife/store.py",
+      "sha256": "c3f9e9e44d4cb6a38ebba60d0a5dc31f67156b18ebb1f65d8d4d32d8290fdc34",
+      "bytes": 891
+    },
+    {
+      "path": "services/travelsheep/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/travelsheep/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "b147e6a1c890d8e479973278e3578cd180669e7f792f5f48ed57fdd9f445210e",
+      "bytes": 129
+    },
+    {
+      "path": "services/travelsheep/__pycache__/amadeus.cpython-313.pyc",
+      "sha256": "01fbb01b8905fd08f94523bbf493d866f180a395f638f7632fc0cfe0379eec92",
+      "bytes": 2668
+    },
+    {
+      "path": "services/travelsheep/__pycache__/app.cpython-313.pyc",
+      "sha256": "8ee2d3029144bf435ea7563b5076e2ff88eb78c24262f8219d8d7a8d8b546fa9",
+      "bytes": 5561
+    },
+    {
+      "path": "services/travelsheep/__pycache__/connectors.cpython-313.pyc",
+      "sha256": "b2c51eac7543e14e5cfa17c1a2fd2cd530301b99b17fca7f7dbc825ae489cc4a",
+      "bytes": 4824
+    },
+    {
+      "path": "services/travelsheep/__pycache__/store.cpython-313.pyc",
+      "sha256": "5f0c3c9cb656ecfb2bd2291c2d665fc3ddd60c6af9034313add25c6d75aadb53",
+      "bytes": 2580
+    },
+    {
+      "path": "services/travelsheep/amadeus.py",
+      "sha256": "03f5cd05ed842defac58d99b657256a87f280ddc347cbe110bb2940446c68d53",
+      "bytes": 1148
+    },
+    {
+      "path": "services/travelsheep/app.py",
+      "sha256": "40793f91ec626d5aeb0c5526c9a92b87a946706975adfefb48715f37e354e81a",
+      "bytes": 2445
+    },
+    {
+      "path": "services/travelsheep/connectors.py",
+      "sha256": "aa38dc94dd745d07adcd8e54cd26b1579c50bf1fcfe4945a3a88dbc4bfaa3c3a",
+      "bytes": 2113
+    },
+    {
+      "path": "services/travelsheep/store.py",
+      "sha256": "b1239e3743bc10d9319b7b181da6b6a20c9ef20849cc5a2099a732dbcdcfc72c",
+      "bytes": 1029
+    },
+    {
+      "path": "services/yellowgeck0/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "services/yellowgeck0/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "3bf44dfd8333e0f7bec37ebd8b5a1266156c0f8ca443f7a513d881ddba078a9c",
+      "bytes": 129
+    },
+    {
+      "path": "services/yellowgeck0/__pycache__/app.cpython-313.pyc",
+      "sha256": "b0426aa88ce7bd2153ad9939e4aaeb02bb0b6ac73b4615d90cb13d05e1886ce9",
+      "bytes": 3031
+    },
+    {
+      "path": "services/yellowgeck0/app.py",
+      "sha256": "971d9255a0b2e6c8f1811a4bfbf48c400f56e913950600b31e40651df2eb3abe",
+      "bytes": 1514
+    },
+    {
+      "path": "shared/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "shared/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "127843fda3d2a7eca5bbaa513d06fa381ab83b9c34690f31fb1e39b34043cd7a",
+      "bytes": 115
+    },
+    {
+      "path": "shared/__pycache__/audit.cpython-313.pyc",
+      "sha256": "b8c617bb1be64b71ccfd70758560e5c95255555090cea0c737214dea92a8fd17",
+      "bytes": 1216
+    },
+    {
+      "path": "shared/__pycache__/auth.cpython-313.pyc",
+      "sha256": "ec31ee0ec3c195b17f5c3c5b50e44bc4e58d477ed99349af72b1db7a57889880",
+      "bytes": 836
+    },
+    {
+      "path": "shared/__pycache__/http.cpython-313.pyc",
+      "sha256": "b824c06d0e3dc87b0fdc1230697b5f3a192f59fe2f947edea6cf81827f953212",
+      "bytes": 1724
+    },
+    {
+      "path": "shared/__pycache__/intents.cpython-313.pyc",
+      "sha256": "98050a9be36fff8cb6fc29bb8d011956e36f82de5b3eea6b890fd76429b6fc40",
+      "bytes": 2443
+    },
+    {
+      "path": "shared/__pycache__/models.cpython-313.pyc",
+      "sha256": "23e5240d72fcd6671abb00f569fdf88c0bba1d03ff7a5f8687d5604c7f20d427",
+      "bytes": 994
+    },
+    {
+      "path": "shared/__pycache__/registry.cpython-313.pyc",
+      "sha256": "2e92f5cf8fa67455a0caa48f4bcdf58d5f7dc600dd2eca7e235c99f642a1d4d3",
+      "bytes": 973
+    },
+    {
+      "path": "shared/__pycache__/settings.cpython-313.pyc",
+      "sha256": "397d9423b8af02e00990f9f744f4579e320c0054cb91b5caf0dc16d6d27878d3",
+      "bytes": 1574
+    },
+    {
+      "path": "shared/__pycache__/storage.cpython-313.pyc",
+      "sha256": "a70460e85cd9ff30dec69bd419629c1c8ac6cf7f7b2bad29ae129686dd4b7458",
+      "bytes": 1816
+    },
+    {
+      "path": "shared/__pycache__/web.cpython-313.pyc",
+      "sha256": "a1d5d70962dd90f6037d4fd7a74a6a1e16ef51d3c8eb6b4deafc0f704e60d53f",
+      "bytes": 900
+    },
+    {
+      "path": "shared/audit.py",
+      "sha256": "3f593b8148db557fad1db3249e95f9e3cce15e77badf069020e3ff479f1812b2",
+      "bytes": 464
+    },
+    {
+      "path": "shared/auth.py",
+      "sha256": "23f5ea1cca35cd19c8a0d8aa62bb9624dfa587ed661d3f1df9413408fd996d9e",
+      "bytes": 432
+    },
+    {
+      "path": "shared/http.py",
+      "sha256": "04ec8311132f24d7439fe70c3823ce193271f18ca5959193468c28eb2d33d403",
+      "bytes": 602
+    },
+    {
+      "path": "shared/intents.py",
+      "sha256": "eea640f4e7991e63355eeb5fcec86f12be135cdf57d2270c356ab9b46411f33d",
+      "bytes": 939
+    },
+    {
+      "path": "shared/models.py",
+      "sha256": "be18eb244f32c5fb1c71b2ac07c4529f443dbaad9e7fca5971130f6edcab3532",
+      "bytes": 270
+    },
+    {
+      "path": "shared/registry.py",
+      "sha256": "2b364be935e7e9cb6809c1a3cd58feb974b993484a91ce5a9b0c6e49989a130e",
+      "bytes": 307
+    },
+    {
+      "path": "shared/settings.py",
+      "sha256": "89be5059437b2c404a9be414b5c91c5e1c62413f28bea001b96b2fc5bc4a56af",
+      "bytes": 722
+    },
+    {
+      "path": "shared/storage.py",
+      "sha256": "6c55752fbed68b913d7da078a3be3abfd1e783416f5c69a4c394f108e07f921e",
+      "bytes": 620
+    },
+    {
+      "path": "shared/web.py",
+      "sha256": "4ac41cb6a43a079c93e8ccd21930b68ac292ff2dfb43a25ccd0d2412500abf8b",
+      "bytes": 382
+    },
+    {
+      "path": "tests/__pycache__/test_breadcrumbs.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "a0a3b2242951284cc7c8c9280eb7904fd307f4847ae027be1c7a97f28eaffc23",
+      "bytes": 3330
+    },
+    {
+      "path": "tests/__pycache__/test_intents.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "41a361ac29593343f2888c14072fa6aadf24437e43994bf97ad09ff062f2bc9c",
+      "bytes": 2448
+    },
+    {
+      "path": "tests/__pycache__/test_scheduler.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "fb078fbd5d1bb11ddf0fb669f7795d4b7e8ce43d1d333a0978e81d70985c5bb9",
+      "bytes": 2904
+    },
+    {
+      "path": "tests/__pycache__/test_security.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "68edbea934a778fb57ccc59364bf38a89ec50e01eca16a23080ec00c6d60d560",
+      "bytes": 783
+    },
+    {
+      "path": "tests/__pycache__/test_services.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "8cfca3ae0ebbf5305c24cf0409bdbf466d495397bdb444d777ca4ccf5aeb8862",
+      "bytes": 4388
+    },
+    {
+      "path": "tests/test_breadcrumbs.py",
+      "sha256": "69c7aa24de181e72d52fb4059501e50942082ab0b979c9d17d83f6d869130550",
+      "bytes": 294
+    },
+    {
+      "path": "tests/test_intents.py",
+      "sha256": "bc4b52b223ee8586fcb8b49bdce0551c53bcf1b563758260e569be59b7b241bd",
+      "bytes": 226
+    },
+    {
+      "path": "tests/test_scheduler.py",
+      "sha256": "df717795cb86397ae40f15984d4e8b38ce769104e1cea2dcdbdc704d5ca70940",
+      "bytes": 237
+    },
+    {
+      "path": "tests/test_security.py",
+      "sha256": "f24d23ec9ca51d7b9685f26232187a5f5a0bcf041a13de55c462d2bfea4011a2",
+      "bytes": 223
+    },
+    {
+      "path": "tests/test_services.py",
+      "sha256": "3fc6fc30cdaf370614a263e80115f1a0b3740738989d8d0f1bc542b86065d7e4",
+      "bytes": 367
+    },
+    {
+      "path": "validate.sh",
+      "sha256": "31936857e77d1da15457e419537147dad7437266f521dbc49479c4f1612d2277",
+      "bytes": 977
+    }
+  ],
+  "validation": "See VALIDATION_REPORT.md",
+  "notes": [
+    "Working sample data included",
+    "Third-party keys optional",
+    "Native Android source included; APK not prebuilt",
+    "Docker runtime requires validation on JE"
+  ]
+}

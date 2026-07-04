@@ -1,0 +1,30 @@
+# Optional defensive profile. Review resource and network requirements before enabling.
+services:
+  geck0trap:
+    image: thinkst/opencanary:latest
+    profiles: ["security"]
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./blackgeck0/geck0trap/opencanary.conf:/root/.opencanary.conf:ro
+      - ./data/security/geck0trap:/var/tmp/opencanary
+
+  geck0sentinel:
+    image: grafana/loki:3.5.0
+    profiles: ["security"]
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    ports: ["3100:3100"]
+    volumes:
+      - ./blackgeck0/geck0sentinel/loki.yml:/etc/loki/local-config.yaml:ro
+      - ./data/security/loki:/loki
+
+  geck0watch:
+    image: jasonish/suricata:latest
+    profiles: ["security-capture"]
+    restart: unless-stopped
+    network_mode: host
+    cap_add: [NET_ADMIN, NET_RAW, SYS_NICE]
+    volumes:
+      - ./blackgeck0/geck0watch/suricata.yaml:/etc/suricata/suricata.yaml:ro
+      - ./data/security/suricata:/var/log/suricata

@@ -1,0 +1,7 @@
+data/
+android/Crumble/.gradle/
+android/Crumble/**/build/
+*.apk
+*.aab
+*.mp4
+*.zip

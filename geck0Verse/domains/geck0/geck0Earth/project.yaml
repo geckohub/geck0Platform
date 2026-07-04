@@ -1,0 +1,11 @@
+project:
+  name: Geck0Earth
+  family: geck0
+  host: JE
+  service_path: services/geck0earth
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true

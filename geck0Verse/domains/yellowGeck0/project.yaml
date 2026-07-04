@@ -1,0 +1,11 @@
+project:
+  name: Yellow Geck0
+  family: yellowGeck0
+  host: JE
+  service_path: services/yellowgeck0
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true

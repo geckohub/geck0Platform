@@ -1,0 +1,11 @@
+project:
+  name: Robot Rainforest
+  family: yellowGeck0
+  host: JE
+  service_path: client-site-drop-in
+  spin_off_ready: true
+backup:
+  architecture: true
+  large_assets: false
+crumble:
+  enabled: true
