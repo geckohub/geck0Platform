@@ -1,0 +1,18 @@
+{
+  "package_name": "geck0_wiki_codex_handoff",
+  "version": "0.1.0",
+  "created_for": "Geck0 ecosystem / JelliedEel / Codex handoff",
+  "purpose": "Capture Geck0 Earth, GeckoScan, Crumble, BreadCrumbs, Geck0 Air, Geck0 Radio, Alternative Timelines, and wider ecosystem development notes in a trackable wiki structure.",
+  "install_target": "~/geck0Platform/geck0Docs/wiki/",
+  "contains": [
+    "wiki markdown pages",
+    "roadmap",
+    "build ideas",
+    "next steps",
+    "git archive instructions",
+    "Codex handoff prompts",
+    "repo hygiene scripts"
+  ],
+  "recommended_git_branch": "docs/geck0-wiki-codex-handoff",
+  "status": "draft-foundation"
+}
