@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$HOME/geck0Platform"
+NAME="${1:-geck0_release}"
+DATE="$(date +%Y%m%d_%H%M%S)"
+REL="$ROOT/geck0Deploy/releases/${DATE}_${NAME}"
+
+mkdir -p "$REL"
+
+cat > "$REL/manifest.json" <<EOM
+{
+  "name": "$NAME",
+  "created": "$DATE",
+  "host": "$(hostname)",
+  "root": "$ROOT",
+  "type": "geck0deploy_release"
+}
+EOM
+
+cat > "$REL/RELEASE_NOTES.md" <<EOM
+# Release Notes: $NAME
+
+Date: $DATE
+
+## Summary
+
+TODO
+
+## Changed
+
+TODO
+
+## Test Notes
+
+TODO
+
+## Deploy Notes
+
+TODO
+EOM
+
+cat > "$REL/CHANGELOG.md" <<EOM
+# Changelog: $NAME
+
+- TODO
+EOM
+
+cat > "$REL/BUILD_GUIDE.md" <<EOM
+# Build Guide: $NAME
+
+## Build
+
+TODO
+
+## Install
+
+TODO
+
+## Verify
+
+TODO
+
+## Rollback
+
+TODO
+EOM
+
+tar -czf "$REL.tar.gz" -C "$ROOT/geck0Deploy/releases" "$(basename "$REL")"
+
+cp "$REL.tar.gz" "$ROOT/governance/tg/pending_updates/"
+
+echo "Created release:"
+ls -lh "$REL.tar.gz"
+echo
+echo "Queued for TG:"
+ls -lh "$ROOT/governance/tg/pending_updates/$(basename "$REL.tar.gz")"
