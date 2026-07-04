@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$HOME/geck0Platform"
+
+case "${1:-help}" in
+  change)
+    "$ROOT/governance/scripts/geck0_change.sh" "${2:-general}" "${3:-untitled-change}"
+    ;;
+
+  backup)
+    "$ROOT/governance/scripts/geck0_architecture_backup.sh"
+    ;;
+
+  backup-linode)
+    "$ROOT/governance/scripts/geck0_architecture_backup_to_linode.sh"
+    ;;
+
+  package-tg)
+    "$ROOT/governance/scripts/geck0_package_tg_update.sh" "${2:-tg_update}"
+    ;;
+
+  status)
+    echo "Geck0Deploy Status"
+    echo "Root: $ROOT"
+    echo
+    git -C "$ROOT" status --short
+    echo
+    echo "Pending TG updates:"
+    ls -lh "$ROOT/governance/tg/pending_updates" || true
+    echo
+    echo "Architecture backups:"
+    ls -lh "$HOME/geck0_architecture_backups" 2>/dev/null || true
+    ;;
+
+  help|*)
+    echo "Geck0Deploy v0.1"
+    echo
+    echo "Commands:"
+    echo "  geck0 change <project> <title>"
+    echo "  geck0 backup"
+    echo "  geck0 backup-linode"
+    echo "  geck0 package-tg <name>"
+    echo "  geck0 status"
+    ;;
+esac
