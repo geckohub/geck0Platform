@@ -1,0 +1,12 @@
+id: helloGeck0
+name: Hello Geck0
+version: 0.1.0
+category: example
+commands:
+  - hello
+widgets:
+  - helloWidget
+permissions:
+  - read
+entrypoint: plugins/examples/helloGeck0/plugin.py
+enabled: true

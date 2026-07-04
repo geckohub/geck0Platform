@@ -1,0 +1,16 @@
+wakeWord: "Crumble"
+engine: "openWakeWord"
+mode: "diagnostic"
+alwaysListening: false
+
+audio:
+  sampleRate: 16000
+  chunkSize: 1280
+
+routing:
+  crumbleApi: "http://localhost:8890/command"
+
+future:
+  stt: "whisper.cpp or faster-whisper"
+  vad: "silero-vad"
+  tts: "piper"

@@ -1,0 +1,72 @@
+geck0earth:
+  update_name: "Geck0Earth Final Layers Update"
+  version: "0.1.0"
+  status: "planning-ready"
+  map_engine:
+    preferred_base: "OpenStreetMap"
+    future_options:
+      - "MapLibre"
+      - "Leaflet"
+      - "PostGIS"
+      - "GeoJSON"
+  layers:
+    - id: core_base
+      name: Core Base Layers
+      branch: geck0earth
+      visibility: public_or_private
+      privacy_level: low
+      status: planned
+    - id: environment_climate
+      name: Environment & Climate
+      branch: geck0earth
+      visibility: public
+      privacy_level: low
+      status: planned
+    - id: crisis_humanitarian
+      name: Crisis / Humanitarian
+      branch: pink_geck0
+      visibility: public
+      privacy_level: medium
+      status: planned
+    - id: travel_mobility
+      name: Travel & Mobility
+      branch: pink_geck0
+      visibility: private_or_public
+      privacy_level: medium
+      status: planned
+    - id: property_relocation
+      name: Property / Relocation
+      branch: sealife_property
+      visibility: private
+      privacy_level: high
+      status: planned
+    - id: rf_signal_intelligence
+      name: RF / Signal Intelligence
+      branch: black_geck0
+      visibility: private
+      privacy_level: high
+      status: planned
+    - id: cyber_infrastructure
+      name: Cyber / Infrastructure
+      branch: black_geck0
+      visibility: private
+      privacy_level: high
+      status: planned
+    - id: community_campaigns
+      name: Community / Campaigns
+      branch: purple_geck0
+      visibility: public_or_private
+      privacy_level: medium
+      status: planned
+    - id: personal_private
+      name: Personal / Private
+      branch: crumble
+      visibility: private
+      privacy_level: very_high
+      status: planned
+    - id: ai_intelligence_prediction
+      name: AI Intelligence / Prediction
+      branch: crumble_pulse
+      visibility: private_or_public
+      privacy_level: high
+      status: planned

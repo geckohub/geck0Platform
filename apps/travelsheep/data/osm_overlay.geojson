@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.58,
+          50.85
+        ]
+      },
+      "properties": {
+        "name": "Dog-friendly cottage demo",
+        "area": "Brighton/Hastings/Margate radius",
+        "price_per_night": 95,
+        "dog_friendly": true,
+        "lat": 50.85,
+        "lon": 0.58,
+        "source": "placeholder scraper"
+      }
+    }
+  ]
+}

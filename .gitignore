@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+*.log
+*.tar.gz
+*.zip
+node_modules/
+.venv/
+venv/
+reports/
+updates/
+storage/
+logs/
+controlCentre/*.backup.*.py

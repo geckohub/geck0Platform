@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+GP="$HOME/geck0Platform"; mkdir -p "$GP/reports/weekly_health" "$GP/wiki/ops"; R="$GP/reports/weekly_health/weekly_$(date +%Y%m%d_%H%M).md"; W="$GP/wiki/ops/WEEKLY_HEALTH_REPORT_LATEST.md"
+{ echo "# Weekly Health & Doctor Report"; date; echo; geck0 status || true; echo; geck0 doctor || true; echo; echo "## Doctor Prescription"; echo "- Review failed packages"; echo "- Check disk usage"; echo "- Check Docker exited containers"; echo "- Run geck0 backup full before applying fixes"; echo; echo "## Git changes"; for r in "$HOME/geck0Platform" "$HOME/ph0enix"; do [ -d "$r/.git" ] && { echo "### $r"; git -C "$r" status --short; git -C "$r" log --oneline -5; }; done; } | tee "$R" > "$W"

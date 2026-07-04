@@ -1,0 +1,16 @@
+platform:
+  name: Geck0Verse
+  home: ~/geck0Platform
+
+services:
+  crumbleApi: http://localhost:8890
+  voiceApi: http://localhost:8891
+  geck0Hub: http://localhost:8892
+  geck0Docs: http://localhost:8893
+
+features:
+  pluginDiscovery: true
+  geck0Docs: true
+  geck0Hub: true
+  updaterV2: true
+  macWatchdog: true

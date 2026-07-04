@@ -1,0 +1,9 @@
+[project]
+name = "ped0na"
+version = "0.1.0"
+description = "Ped0na generator and automation framework for Geck0Verse."
+requires-python = ">=3.11"
+dependencies = ["pyyaml", "jinja2", "rich"]
+
+[project.scripts]
+ped0na = "ped0na.generator.cli:main"

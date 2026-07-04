@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Geck0Earth Layer",
+  "type": "object",
+  "required": ["id", "name", "branch", "visibility", "privacy_level", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "branch": {"type": "string"},
+    "visibility": {"type": "string"},
+    "source_type": {"type": "string"},
+    "update_frequency": {"type": "string"},
+    "privacy_level": {"type": "string"},
+    "requires_api_key": {"type": "boolean"},
+    "api_key_env": {"type": "string"},
+    "status": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}

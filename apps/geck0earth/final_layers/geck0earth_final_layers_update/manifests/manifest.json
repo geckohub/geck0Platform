@@ -1,0 +1,16 @@
+{
+  "package": "geck0_geck0earth_Final_Layers_Update",
+  "project": "Geck0Earth",
+  "version": "0.1.0",
+  "type": "planning_update",
+  "ingestion_order": "chronological_oldest_first",
+  "contains": [
+    "README.md",
+    "docs/GECK0EARTH_FINAL_LAYERS.md",
+    "config/geck0earth_layers.yml",
+    ".env.example",
+    "schemas/layer.schema.json",
+    "CHANGELOG.md"
+  ],
+  "tags": ["geck0earth", "layers", "map", "crumble", "geck0verse"]
+}

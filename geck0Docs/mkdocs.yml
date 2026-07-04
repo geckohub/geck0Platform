@@ -1,0 +1,15 @@
+site_name: Geck0Docs
+site_description: Geck0Verse architecture, plugins, APIs and operations
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Plugin SDK: plugin-sdk.md
+  - Crumble: crumble.md
+  - CyberX: cyberx.md
+  - Updates: updates.md
+  - Mac Watchdog: mac-watchdog.md
+
+# Added by Geck0 auto-install wiki patch
+# If MkDocs complains about duplicate/nav formatting later, move this under nav manually.

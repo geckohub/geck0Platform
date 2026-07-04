@@ -1,0 +1,46 @@
+platform:
+  name: Geck0Verse
+
+devices:
+
+  JelliedEel:
+    role: Home Server
+    host: 192.168.1.244
+    ssh_port: 1991
+    user: lucy
+    update_folder: /home/lucy/geck0Platform/updates/incoming
+    dashboard: true
+    voice: true
+    online: true
+
+  ThaiGreen:
+    role: Security Platform
+    host: 192.168.1.172
+    ssh_port: 1991
+    user: lucy
+    update_folder: /home/lucy/geck0Platform/updates/incoming
+    online: true
+
+  Shepherd:
+    role: Logging / Home Assistant
+    host:
+    ssh_port: 1991
+    user: lucy
+    update_folder: /home/lucy/geck0Platform/updates/incoming
+    online: false
+
+  SmartMirror:
+    role: MagicMirror
+    host:
+    ssh_port: 1991
+    user: lucy
+    update_folder: /home/lucy/geck0Platform/updates/incoming
+    online: false
+
+  Pixel:
+    role: Android
+    online: false
+
+  KetamaHarness:
+    role: Pi Zero 2 W
+    online: false

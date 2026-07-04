@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Geck0Earth</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    html,body,#map{height:100%;margin:0;background:#001007;color:#00ff66;font-family:monospace}
+    .panel{position:absolute;z-index:999;background:#001b0d;border:1px solid #00ff66;padding:8px;border-radius:6px}
+    #top{top:10px;left:10px;right:10px}
+    #layers{top:80px;left:10px}
+    #cmd{bottom:10px;left:10px;right:10px}
+    button,input{background:#001007;color:#00ff66;border:1px solid #00ff66;padding:6px;margin:2px}
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<div id="top" class="panel">🦎 <b>Geck0Earth v4.1</b> | OSM + custom layers + Crumble command bar</div>
+
+<div id="layers" class="panel">
+  <button onclick="toggle('travelsheep')">TravelSheep</button>
+  <button onclick="toggle('sealife')">SeaLife</button>
+  <button onclick="toggle('wigle')">WiGLE</button>
+  <button onclick="toggle('ketama')">Ketama</button>
+  <button onclick="toggle('weather')">Weather</button>
+</div>
+
+<div id="cmd" class="panel">
+  <input id="q" style="width:75%" placeholder="Ask Crumble: show WiGLE, find dog friendly cottages, scan Croydon..."/>
+  <button onclick="alert('Crumble hook scaffold: '+document.getElementById('q').value)">Run</button>
+</div>
+
+<script>
+const map=L.map('map').setView([51.3721,-0.0982],11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  maxZoom:19, attribution:'© OpenStreetMap contributors'
+}).addTo(map);
+
+const layers={};
+
+layers.travelsheep=L.layerGroup([
+  L.marker([50.8225,-0.1372]).bindPopup('Brighton weekend base'),
+  L.marker([50.8552,0.5729]).bindPopup('Hastings / St Leonards'),
+  L.marker([51.3896,1.3868]).bindPopup('Margate / Cliftonville')
+]);
+
+layers.sealife=L.layerGroup([
+  L.circle([50.8225,-0.1372],{radius:1200}).bindPopup('SeaLife: Brighton property zone'),
+  L.circle([50.8552,0.5729],{radius:1200}).bindPopup('SeaLife: Hastings property zone'),
+  L.circle([51.3896,1.3868],{radius:1200}).bindPopup('SeaLife: Margate property zone')
+]);
+
+layers.ketama=L.layerGroup([
+  L.polyline([[51.374,-0.09],[51.37,-0.1],[51.365,-0.11]]).bindPopup('Ketama walk sample')
+]);
+
+layers.weather=L.layerGroup([
+  L.circle([51.3721,-0.0982],{radius:2000}).bindPopup('Weather layer placeholder')
+]);
+
+layers.wigle=L.layerGroup();
+
+fetch('/apps/travelsheep/data/osm_overlay.geojson').then(r=>r.json()).then(j=>{
+  L.geoJSON(j,{onEachFeature:(f,l)=>l.bindPopup(f.properties?.name||'TravelSheep')}).addTo(layers.travelsheep);
+}).catch(()=>console.log('No TravelSheep GeoJSON yet'));
+
+fetch('/geck0Earth/layers/wigle_latest.geojson').then(r=>r.json()).then(j=>{
+  L.geoJSON(j,{onEachFeature:(f,l)=>l.bindPopup(f.properties?.ssid||'WiGLE point')}).addTo(layers.wigle);
+}).catch(()=>console.log('No WiGLE GeoJSON yet'));
+
+function toggle(name){
+  if(map.hasLayer(layers[name])) map.removeLayer(layers[name]);
+  else layers[name].addTo(map);
+}
+layers.travelsheep.addTo(map);
+layers.sealife.addTo(map);
+</script>
+</body>
+</html>

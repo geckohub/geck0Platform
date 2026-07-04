@@ -1,0 +1,5 @@
+site_name: Ped0na Docs
+theme:
+  name: material
+nav:
+  - Home: docs/index.md
